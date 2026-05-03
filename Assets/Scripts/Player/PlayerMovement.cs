@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpReduceRate;
     [Space]
     [SerializeField] private Vector2 boxSize;
     [SerializeField] private float castDistance;
@@ -19,12 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -39,11 +34,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log(isGrounded());
-
         if (context.performed && isGrounded())
         {
             rb.AddForce(new Vector2(0f, 100f * jumpForce), ForceMode2D.Force);
+        }
+
+        if (context.canceled && rb.linearVelocity.y > 0)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y / jumpReduceRate);
         }
     }
 
