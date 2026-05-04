@@ -23,6 +23,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Blast Up",
+                    "type": "Button",
+                    "id": "0fbcbe4d-9575-44ef-a9a6-ec732e9d603a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Blast Down",
+                    "type": "Button",
+                    "id": "e89b3bf9-fa38-435c-8f9e-6c6b432bff77",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Blast Left",
+                    "type": "Button",
+                    "id": "1f80045a-4000-4efc-a82b-bfca92743599",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Blast Right",
+                    "type": "Button",
+                    "id": "7f180de7-51e2-4ac4-933c-24b4b0c7261c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -49,7 +85,29 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "",
+                    "id": "44673389-a621-40af-b421-debbadcd9ea1",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "254d05ad-2596-4d21-a272-ba7c7ed29904",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
                     "id": "426a89ad-18f8-4bd0-a321-e653554f9d5d",
                     "path": "2DVector",
                     "interactions": "",
@@ -104,8 +162,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "2ef8d08c-8db1-49dd-8124-47f539c943bb",
+                    "name": "Gamepad D-Pad",
+                    "id": "67f0119c-ab39-4b16-89d3-dbfbc359146a",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -116,8 +174,8 @@
                 },
                 {
                     "name": "up",
-                    "id": "636bfc72-7a64-477f-a84e-fccd6378be15",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "fb6f09e2-c142-4b0f-834d-940e4a62d50e",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -127,8 +185,8 @@
                 },
                 {
                     "name": "down",
-                    "id": "9fd1e404-fbb0-4ae2-8f7b-fc679d4f7145",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "b56fe1d6-ea49-47e6-879f-ea0736301b6d",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -138,8 +196,8 @@
                 },
                 {
                     "name": "left",
-                    "id": "9fd3d484-1301-4028-aca3-a2ea2aa37781",
-                    "path": "<Keyboard>/leftArrow",
+                    "id": "2ca93d9a-376c-4596-9d73-5f00b15439d2",
+                    "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -149,14 +207,124 @@
                 },
                 {
                     "name": "right",
-                    "id": "05c98903-5f1b-4ff8-9672-555365ac1df0",
-                    "path": "<Keyboard>/rightArrow",
+                    "id": "c1a260e3-cd6b-4a22-9b4e-8825e363afab",
+                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d3560788-0cde-469b-a96c-62b327be8e5b",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b15ae2b5-2833-4975-982c-827b89b3a6ec",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e980b9c3-343d-430d-a20d-b2c495bddde3",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4269af92-3e28-4af2-b22c-b17325f87782",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77a3c4d3-a181-409f-b04e-aa615fc33202",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e5c70fe-7204-4a7e-8f13-fac274b74927",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40a87fb6-c68c-4c11-959a-37de58b6985d",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d9967aa-37f7-4fd7-812e-10d5c2fe0f1d",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fbbc5da3-4b8a-4d96-94d1-347941f29744",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "650f7bf6-dc53-4218-ad2f-add56c7612f7",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Blast Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

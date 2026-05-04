@@ -12,19 +12,21 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jump")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpReduceRate;
-    [Space]
-    [SerializeField] private Vector2 boxSize;
-    [SerializeField] private float castDistance;
-    [SerializeField] private LayerMask groundLayer;
+
+    //Other Scripts
+    private PlayerStats _playerStats;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        _playerStats = GetComponent<PlayerStats>();
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(movementDir.x * moveSpeed * Time.fixedDeltaTime * 10f, rb.linearVelocity.y);
+        //rb.linearVelocity = new Vector2(movementDir.x * moveSpeed * Time.fixedDeltaTime * 10f, rb.linearVelocity.y);
+        rb.AddForce(new Vector2 (movementDir.x * moveSpeed * Time.fixedDeltaTime * 10f, 0f), ForceMode2D.Force);
+        //rb.MovePosition(new Vector2(transform.position.x + (movementDir.x * moveSpeed * Time.fixedDeltaTime), transform.position.y));
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -34,31 +36,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded())
+        if (context.performed && _playerStats.isGrounded())
         {
-            rb.AddForce(new Vector2(0f, 100f * jumpForce), ForceMode2D.Force);
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
 
         if (context.canceled && rb.linearVelocity.y > 0)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y / jumpReduceRate);
         }
-    }
-
-    public bool isGrounded()
-    {
-        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
 }
