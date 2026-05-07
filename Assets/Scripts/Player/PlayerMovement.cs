@@ -24,8 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //rb.linearVelocity = new Vector2(movementDir.x * moveSpeed * Time.fixedDeltaTime * 10f, rb.linearVelocity.y);
-        rb.AddForce(new Vector2 (movementDir.x * moveSpeed * Time.fixedDeltaTime * 10f, 0f), ForceMode2D.Force);
+        if ( _playerStats.isGrounded())
+        {
+            rb.linearVelocity = new Vector2(movementDir.x * moveSpeed * Time.fixedDeltaTime * 10f, rb.linearVelocity.y);
+        }
+        //rb.AddForce(new Vector2 (movementDir.x * moveSpeed * Time.fixedDeltaTime * 10f, 0f), ForceMode2D.Force);
         //rb.MovePosition(new Vector2(transform.position.x + (movementDir.x * moveSpeed * Time.fixedDeltaTime), transform.position.y));
     }
 

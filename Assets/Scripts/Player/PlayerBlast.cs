@@ -60,7 +60,6 @@ public class PlayerBlast : MonoBehaviour
         if (context.performed)
         {
             _blastTimers[1] = 0f;
-            rb.AddForce(new Vector2(100f * 4, 0f), ForceMode2D.Force);
         }
 
         if (context.canceled)
@@ -84,7 +83,6 @@ public class PlayerBlast : MonoBehaviour
         if (context.performed)
         {
             _blastTimers[2] = 0f;
-            rb.AddForce(new Vector2(100f * -4, 0f), ForceMode2D.Force);
         }
 
         if (context.canceled)
