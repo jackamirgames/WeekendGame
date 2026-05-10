@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class PlayerBlast : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerBlast : MonoBehaviour
     //Timers
     [SerializeField] private float holdBlastTimer;
     private float[] _blastTimers; //0 - Down, 1 - Left, 2 - Right, 3 - Up
+
+    [SerializeField] private EventReference sfxOnClicked;
 
     private void Awake()
     {
@@ -33,6 +36,8 @@ public class PlayerBlast : MonoBehaviour
 
     public void BlastDown(InputAction.CallbackContext context)
     {
+        AudioManager.instance.PlayOneShot(sfxOnClicked, transform.position);
+
         if (context.performed)
         {
             _blastTimers[0] = 0f;
