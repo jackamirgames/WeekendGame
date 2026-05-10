@@ -7,17 +7,17 @@ public class PlayerBlast : MonoBehaviour
     //Variables
     private Rigidbody2D rb;
     private PlayerStats _playerStats;
+    private PlayerAudio _playerAudio;
 
     //Timers
     [SerializeField] private float holdBlastTimer;
     private float[] _blastTimers; //0 - Down, 1 - Left, 2 - Right, 3 - Up
 
-    [SerializeField] private EventReference sfxOnClicked;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         _playerStats = GetComponent<PlayerStats>();
+        _playerAudio = GetComponent<PlayerAudio>();
 
         _blastTimers = new float[4];
     }
@@ -36,7 +36,9 @@ public class PlayerBlast : MonoBehaviour
 
     public void BlastDown(InputAction.CallbackContext context)
     {
-        AudioManager.instance.PlayOneShot(sfxOnClicked, transform.position);
+        if (_playerStats.isGrounded()) return;
+
+        _playerAudio.PlayBlastSFX();
 
         if (context.performed)
         {
