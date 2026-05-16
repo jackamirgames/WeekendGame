@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using FMODUnity;
+using Unity.Cinemachine;
 
 public class PlayerBlast : MonoBehaviour
 {
@@ -8,6 +8,8 @@ public class PlayerBlast : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerStats _playerStats;
     private PlayerAudio _playerAudio;
+    
+    private CinemachineImpulseSource _impulseSource;
 
     //Timers
     [SerializeField] private float holdBlastTimer;
@@ -18,6 +20,8 @@ public class PlayerBlast : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _playerStats = GetComponent<PlayerStats>();
         _playerAudio = GetComponent<PlayerAudio>();
+
+        _impulseSource = GetComponent<CinemachineImpulseSource>();
 
         _blastTimers = new float[4];
     }
@@ -38,8 +42,6 @@ public class PlayerBlast : MonoBehaviour
     {
         if (_playerStats.isGrounded()) return;
 
-        _playerAudio.PlayBlastSFX();
-
         if (context.performed)
         {
             _blastTimers[0] = 0f;
@@ -47,6 +49,9 @@ public class PlayerBlast : MonoBehaviour
 
         if (context.canceled)
         {
+            _playerAudio.PlayBlastSFX();
+            CameraShakeManager.instance.CameraShake(_impulseSource);
+
             if (_blastTimers[0] > holdBlastTimer) //Blast Jump
             {
                 rb.linearVelocity = Vector2.zero;
