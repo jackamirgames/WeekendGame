@@ -1134,6 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   framesPerSecond: 120
+  totalGameTime: 5
 --- !u!1 &1475324069
 GameObject:
   m_ObjectHideFlags: 0
